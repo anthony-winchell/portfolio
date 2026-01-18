@@ -7,10 +7,10 @@ import { Component, Input } from '@angular/core';
   styleUrl: './project-card.css',
 })
 export class ProjectCard {
-  @Input() name!: string;
-  @Input() description!: string;
-  @Input() tools!: string[];
+  @Input() name! : string;
+  @Input() description! : string;
+  @Input() technologies! : string[];
   @Input() github?: string;
   @Input() live?: string;
-  @Input() image?: string;
+
 }

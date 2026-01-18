@@ -1,10 +1,13 @@
 <section class="mt-16">
   <!-- Header -->
-  <img src="me.jpeg" alt="Anthony Winchell" class="w-32 h-32 rounded-full mb-12 object-cover ring-3 ring-indigo-100 hover:ring-4 transition "/>
-  <h1 class="text-4xl font-semibold mb-4">Anthony Winchell</h1>
+  
+  <img src="me.jpeg" alt="Anthony Winchell" class="w-32 h-32 rounded-full mb-12 object-cover ring-3 ring-indigo-100 hover:ring-4 "/>
+  <h1 class="text-4xl font-semibold ">Anthony Winchell</h1>
+  <p class="text-sm text-gray-400 italic mb-2">
+    Learning by breaking, somehow making it worse, then fixing. 
+  </p>
   <p class="text-gray-500 max-w-xl mb-10">
-    Computer science student focused on building clean, maintainable full-stack applications
-    using Angular and Spring Boot.
+    Computer science student focused on building clean, maintainable applications with Angular, Spring Boot, and Go.
   </p>
     
   <!-- Technologies -->
@@ -25,41 +28,56 @@
 
   <!-- Projects -->
   <h3 class="text-2xl font-semibold mb-4">What I'm working on</h3>
+  <p class="text-gray-500 max-w-xl mb-4">
+    A selection of projects focused on learning backend systems
+    and real-world development.
+  </p>
   <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
-    <div class="bg-white border rounded-lg shadow-sm hover:shadow-md hover:-translate-y-0.5 transition p-6">
-      <h3 class="text-lg font-semibold mb-2">Chat App</h3>
-      <p class="text-slate-600 mb-4">  Real-time CLI chat application focused on learning Go concurrency.
-        This project explores goroutines and channels rather than production use.</p>
-      <div class="flex flex-wrap gap-2 mt-2">
-        <span class="bg-indigo-100 text-indigo-800 px-3 py-1 rounded-full text-sm font-medium">Go</span>
-      </div>
-      <a href="https://github.com/anthony-winchell/go-cli.git" target="_blank" class="text-indigo-600 block mt-4 hover:text-indigo-500 transition">View</a>
+    
+    <app-project-card 
+      name="Go CLI Chat App"
+      description="A terminal-based real-time chat application built to explore Go concurrency.
+      This project focuses on goroutines, channels, and basic networking concepts
+      rather than production-level features."
+      [technologies]="['Go']"
+      github="https://github.com/anthony-winchell/go-cli.git"
+    ></app-project-card>
+
+
+    <app-project-card 
+      name="FloSight Drones"
+      description="Landing Page for FloSight Drones. A company that specializes in aerial photography and videography. 
+      (I plan on rewriting the backend, but this project supports a friends business.)"
+      [technologies]="['HTML/CSS', 'JS', 'ExpressJS']"
+      live="https://flosightdrones.com/"
+    ></app-project-card>
+
+    <app-project-card 
+      name="More to come"
+      description="More projects are coming soon. I use Spring Boot for school and personal projects, but recently I've become very interested in the Go programming language, which I plan to explore further."
+      [technologies]="['Go', 'Angular', 'Spring Boot']"
+    ></app-project-card>
     </div>
 
-    <div class="bg-white border rounded-lg shadow-sm hover:shadow-md hover:-translate-y-0.5 transition p-6">
-      <h3 class="text-lg font-semibold mb-2">FloSight Drones</h3>
-      <p class="text-slate-600 mb-4">Landing Page for FloSight Drones. A company that specializes in aerial photography and videography. 
-                                      (I plan on rewriting the backend, but this project supports a friends business.) </p>
-      <div class="flex flex-wrap gap-2 mt-2">
-        <span class="bg-indigo-100 text-indigo-800 px-3 py-1 rounded-full me-2 text-sm font-medium">HTML/CSS</span>
-        <span class="bg-indigo-100 text-indigo-800 px-3 py-1 rounded-full me-2 text-sm font-medium">JS</span>
-        <span class="bg-indigo-100 text-indigo-800 px-3 py-1 rounded-full me-3 text-sm font-medium">ExpressJS</span>
-      </div>
-      <a href="https://www.flosightdrones.com/" target="_blank" class="text-indigo-600 hover:text-indigo-500 block mt-4 transition">View</a>
+    <h3 class="text-2xl font-semibold mb-4">Who I am</h3>
+    <p class="text-gray-500 max-w-xl mb-10">
+      I’m a computer science student focused on backend development and learning how systems work under the hood.
+      I build projects to understand fundamental concepts like networking, concurrency, and APIs in a hands-on way.
+      Outside of school, I’m self-motivated, curious, and driven to improve.
+      I’m actively building projects and working toward contributing to open-source software.
+    </p>
 
-    </div>
-
-    <div class="bg-white border rounded-lg shadow-sm hover:shadow-md hover:-translate-y-0.5 transition p-6">
-      <h3 class="text-lg font-semibold mb-2">Coming Soon</h3>
-      <p class="text-slate-600 mb-4">More projects are coming soon. I use Spring Boot for school and personal projects, but recently I've become very interested in the Go programming language, which I plan to explore further.</p>
-      <a routerLink="/projects" class="text-indigo-600 hover:text-indigo-500 block mt-4 transition">View</a>
-    </div>
-  </div>
-
-  <a
-    [routerLink]="['/projects']"
-    class="inline-block mt-4 text-white px-6 py-3 rounded-xl bg-indigo-600 hover:bg-indigo-500 transition"
-  >
-    View Projects
-  </a>
+    <section class="mb-24">
+      <h3 class="text-2xl font-semibold mb-4">Currently Exploring</h3>
+    
+      <ul class="grid grid-cols-1 sm:grid-cols-2 gap-y-2 gap-x-15 text-gray-500 max-w-xl">
+        <li>• Go concurrency patterns and channel-based design</li>
+        <li>• REST APIs with Spring Boot and Go</li>
+        <li>• Backend architecture</li>
+        <li>• Algorithms</li>
+        <li>• Data Structures</li>
+        <li>• Angular and Tailwind CSS</li>
+        <li>• Reading and contributing to open-source codebases</li>
+      </ul>
+    </section>
 </section>
