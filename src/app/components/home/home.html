@@ -3,17 +3,15 @@
   
   <img src="me.jpeg" alt="Anthony Winchell" class="w-32 h-32 rounded-full mb-12 object-cover ring-3 ring-indigo-100 hover:ring-4 "/>
   <h1 class="text-4xl font-semibold ">Anthony Winchell</h1>
-  <p class="text-sm text-gray-400 italic mb-2">
-    Learning by breaking, somehow making it worse, then fixing. 
-  </p>
-  <p class="text-gray-500 max-w-xl mb-10">
-    Computer science student focused on building clean, maintainable applications with Angular, Spring Boot, and Go.
+  <p class="text-sm text-gray-400 italic mb-5">
+    Software Engineer
   </p>
     
   <!-- Technologies -->
   <h3 class="text-2xl font-semibold mb-4">Technologies</h3>
   <div class="flex flex-wrap gap-2 mb-12">
     <span class="bg-indigo-100 text-indigo-800 px-3 py-1 rounded-full text-sm font-medium">Angular</span>
+    <span class="bg-indigo-100 text-indigo-800 px-3 py-1 rounded-full text-sm font-medium">Next.js</span>
     <span class="bg-indigo-100 text-indigo-800 px-3 py-1 rounded-full text-sm font-medium"
       >Spring Boot</span
     >
@@ -33,17 +31,6 @@
     and real-world development.
   </p>
   <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
-    
-    <app-project-card 
-      name="Go CLI Chat App"
-      description="A terminal-based real-time chat application built to explore Go concurrency.
-      This project focuses on goroutines, channels, and basic networking concepts
-      rather than production-level features."
-      [technologies]="['Go']"
-      github="https://github.com/anthony-winchell/go-cli.git"
-    ></app-project-card>
-
-
     <app-project-card 
       name="FloSight Drones"
       description="Landing Page for FloSight Drones. A company that specializes in aerial photography and videography. 
@@ -51,6 +38,16 @@
       [technologies]="['HTML/CSS', 'JS', 'ExpressJS']"
       live="https://flosightdrones.com/"
     ></app-project-card>
+    
+    <app-project-card 
+      name="dev_help"
+      description="Full-stack workflow management platform that enables developers to organize projects, associate repositories, and coordinate work items through structured status transitions. 
+      Implements authenticated user workflows, RESTful APIs, and a PostgreSQL database for persistence."
+      [technologies]="['Next.js', 'Spring Boot', 'PostgreSQL', 'Tailwind CSS']"
+      live="https://incident-next-sigma.vercel.app/"
+    ></app-project-card>
+
+
 
     <app-project-card 
       name="Luv2Code backend"
@@ -63,16 +60,16 @@
     <app-project-card 
       name="More to come"
       description="More projects are coming soon. I use Spring Boot for school and personal projects, but recently I've become very interested in the Go programming language, which I plan to explore further."
-      [technologies]="['Go', 'Angular', 'Spring Boot']"
+      [technologies]="['Go', 'Angular', 'Next.js', 'Spring Boot']"
     ></app-project-card>
     </div>
 
     <h3 class="text-2xl font-semibold mb-4">Who I am</h3>
     <p class="text-gray-500 max-w-xl mb-10">
       I’m a computer science student focused on backend development and learning how systems work under the hood.
-      I build projects to understand fundamental concepts like networking, concurrency, and APIs in a hands-on way.
+      I build projects to better understand fundamental concepts like networking, concurrency, and APIs in a hands-on way.
       Outside of school, I’m self-motivated, curious, and driven to improve.
-      I’m actively building projects and working toward contributing to open-source software.
+      I’m actively building projects and working toward contributing to open-source projects. I look forward to the chance to do this professionally.
     </p>
 
     <section class="mb-24">
