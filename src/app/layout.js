@@ -1,4 +1,6 @@
 import { Inter, JetBrains_Mono } from "next/font/google";
+import Bufferline from "@/components/Bufferline";
+import StatusLine from "@/components/StatusLine";
 import "./globals.css";
 
 const inter = Inter({
@@ -26,7 +28,11 @@ export default function RootLayout({ children }) {
       lang="en"
       className={`${inter.variable} ${jetbrainsMono.variable} h-full antialiased`}
     >
-      <body className="flex min-h-full flex-col">{children}</body>
+      <body className="flex min-h-dvh flex-col">
+        <Bufferline />
+        <main className="flex-1">{children}</main>
+        <StatusLine />
+      </body>
     </html>
   );
 }

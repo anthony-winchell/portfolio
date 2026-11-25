@@ -10,7 +10,7 @@ const swatches = [
 
 export default function Home() {
   return (
-    <main className="mx-auto w-full max-w-3xl px-6 py-24">
+    <div className="mx-auto w-full max-w-3xl px-6 py-24">
       <p className="font-mono text-sm text-green">~/portfolio</p>
       <h1 className="mt-2 text-4xl font-bold text-purple">Anthony Winchell</h1>
       <p className="mt-4 text-lg">
@@ -33,6 +33,6 @@ export default function Home() {
           </li>
         ))}
       </ul>
-    </main>
+    </div>
   );
 }
