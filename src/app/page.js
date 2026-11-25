@@ -1,38 +1,64 @@
-const swatches = [
-  { name: "purple", className: "bg-purple" },
-  { name: "pink", className: "bg-pink" },
-  { name: "green", className: "bg-green" },
-  { name: "cyan", className: "bg-cyan" },
-  { name: "yellow", className: "bg-yellow" },
-  { name: "orange", className: "bg-orange" },
-  { name: "red", className: "bg-red" },
-];
+import Image from "next/image";
+import ProjectCard from "@/components/ProjectCard";
+import { projects } from "@/data/projects";
+import { site } from "@/data/site";
+
+const linkClass = "text-cyan underline underline-offset-4 hover:text-pink";
 
 export default function Home() {
   return (
-    <div className="mx-auto w-full max-w-3xl px-6 py-24">
-      <p className="font-mono text-sm text-green">~/portfolio</p>
-      <h1 className="mt-2 text-4xl font-bold text-purple">Anthony Winchell</h1>
-      <p className="mt-4 text-lg">
-        Body text uses Inter. Headings and UI use{" "}
-        <code className="font-mono text-pink">JetBrains Mono</code>.
-      </p>
-      <p className="mt-2 text-muted">Secondary text uses the muted color.</p>
-      <a
-        href="https://github.com/anthony-winchell"
-        className="mt-6 inline-block font-mono text-cyan underline underline-offset-4 hover:text-pink"
-      >
-        GitHub
-      </a>
+    <div className="mx-auto w-full max-w-3xl px-6 py-16">
+      <section className="flex flex-col-reverse items-start gap-8 sm:flex-row sm:items-center sm:justify-between">
+        <div>
+          <p className="font-mono text-green">{site.role}</p>
+          <h1 className="mt-2 text-4xl font-bold text-purple">{site.name}</h1>
+          <p className="mt-4 max-w-lg text-lg">
+            I build backend systems and terminal tools in Go, and web apps with
+            React and Next.js.
+          </p>
+          <div className="mt-6 flex flex-wrap gap-5 font-mono text-sm">
+            <a href={site.github} className={linkClass}>
+              GitHub
+            </a>
+            <a href={site.linkedin} className={linkClass}>
+              LinkedIn
+            </a>
+            <a href={`mailto:${site.email}`} className={linkClass}>
+              Email
+            </a>
+          </div>
+        </div>
+        <Image
+          src="/me.jpeg"
+          alt="Anthony Winchell"
+          width={160}
+          height={160}
+          preload
+          className="size-32 shrink-0 rounded-full border-2 border-purple object-cover sm:size-40"
+        />
+      </section>
 
-      <ul className="mt-12 grid grid-cols-2 gap-4 rounded-lg border border-line bg-bg-dark p-6 sm:grid-cols-4">
-        {swatches.map((swatch) => (
-          <li key={swatch.name} className="font-mono text-sm">
-            <div className={`mb-2 h-10 rounded ${swatch.className}`} />
-            {swatch.name}
-          </li>
-        ))}
-      </ul>
+      <section className="mt-20">
+        <h2 className="text-2xl font-bold text-purple">Projects</h2>
+        <div className="mt-6 space-y-6">
+          {projects.map((project) => (
+            <ProjectCard
+              key={project.slug}
+              project={project}
+              headingLevel="h3"
+            />
+          ))}
+        </div>
+      </section>
+
+      <section className="mt-20">
+        <h2 className="text-2xl font-bold text-purple">About</h2>
+        <p className="mt-4 text-lg leading-relaxed">
+          I graduated with a computer science degree in July 2026. I like
+          concurrency, networking, and building tools I want to use myself,
+          mostly from inside Neovim.
+        </p>
+      </section>
     </div>
   );
 }

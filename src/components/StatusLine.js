@@ -1,6 +1,7 @@
 "use client";
 
 import { usePathname } from "next/navigation";
+import { site } from "@/data/site";
 
 export default function StatusLine() {
   const pathname = usePathname();
@@ -18,13 +19,13 @@ export default function StatusLine() {
         {location}
       </span>
       <a
-        href="https://github.com/anthony-winchell"
+        href={site.github}
         className="px-4 py-2 text-cyan -outline-offset-2 hover:text-pink "
       >
         GitHub
       </a>
       <a
-        href="mailto:anthony.winchell.56@gmail.com"
+        href={`mailto:${site.email}`}
         className="px-4 py-2 text-cyan -outline-offset-2 hover:text-pink"
       >
         Email
