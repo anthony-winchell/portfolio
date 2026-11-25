@@ -17,6 +17,14 @@
   --color-yellow: #f1fa8c;
   --color-orange: #ffb86c;
   --color-red: #ff5555;
+
+  --animate-blink: blink 1.1s steps(1) infinite;
+
+  @keyframes blink {
+    50% {
+      opacity: 0;
+    }
+  }
 }
 
 @theme inline {
@@ -45,5 +53,24 @@
 
   :focus-visible {
     @apply outline-2 outline-offset-2 outline-purple;
+  }
+}
+
+@layer components {
+  /* Numbers each direct child, like lines in an editor. */
+  .buffer {
+    @apply space-y-10;
+    counter-reset: line;
+  }
+
+  .buffer > * {
+    @apply relative sm:pl-10;
+    counter-increment: line;
+  }
+
+  .buffer > *::before {
+    @apply absolute top-1 left-0 hidden w-5 text-right font-mono text-sm text-comment sm:block;
+    /* The empty alternative text keeps screen readers from reading it. */
+    content: counter(line) / "";
   }
 }

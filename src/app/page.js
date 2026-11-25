@@ -1,63 +1,83 @@
-import Image from "next/image";
-import ProjectCard from "@/components/ProjectCard";
+import CareerLog from "@/components/home/CareerLog";
+import Contact from "@/components/home/Contact";
+import DashboardMenu from "@/components/home/DashboardMenu";
+import FetchWindow from "@/components/home/FetchWindow";
+import PixelName from "@/components/home/PixelName";
+import ProjectWindow from "@/components/home/ProjectWindow";
 import { projects } from "@/data/projects";
 import { site } from "@/data/site";
+
+export const metadata = {
+  alternates: { canonical: "/" },
+};
 
 const linkClass = "text-cyan underline underline-offset-4 hover:text-pink";
 
 export default function Home() {
   return (
-    <div className="mx-auto w-full max-w-3xl px-6 py-16">
-      <section className="flex flex-col-reverse items-start gap-8 sm:flex-row sm:items-center sm:justify-between">
-        <div>
-          <p className="font-mono text-green">{site.role}</p>
-          <h1 className="mt-2 text-4xl font-bold text-purple">{site.name}</h1>
-          <p className="mt-4 max-w-lg text-lg">
-            I build backend systems and terminal tools in Go, and web apps with
-            React and Next.js.
-          </p>
-          <div className="mt-6 flex flex-wrap gap-5 font-mono text-sm">
-            <a href={site.github} className={linkClass}>
-              GitHub
-            </a>
-            <a href={site.linkedin} className={linkClass}>
-              LinkedIn
-            </a>
-            <a href={`mailto:${site.email}`} className={linkClass}>
-              Email
-            </a>
+    <div className="@container">
+      <section className="bg-[radial-gradient(var(--color-line)_1px,transparent_1px)] bg-size-[24px_24px]">
+        <div className="mx-auto grid max-w-6xl items-center gap-12 bg-radial from-bg from-40% to-transparent px-6 py-14 @5xl:grid-cols-2 @5xl:py-20">
+          <div className="min-w-0">
+            <h1 className="sr-only">{site.name}</h1>
+            <PixelName />
+            <p className="mt-8 max-w-lg text-lg leading-relaxed">
+              I&apos;m a backend-focused software engineer in healthcare tech. I
+              spent nearly a decade in the service industry, then earned a CS
+              degree in 18 months while working full-time. I spend my own time
+              building networking and terminal tools in Go.
+            </p>
+            <div className="mt-5 flex flex-wrap gap-5 font-mono text-sm">
+              <a href={site.github} className={linkClass}>
+                GitHub
+              </a>
+              <a href={site.linkedin} className={linkClass}>
+                LinkedIn
+              </a>
+              <a href={`mailto:${site.email}`} className={linkClass}>
+                Email
+              </a>
+              {site.resume && (
+                <a href={site.resume} className={linkClass}>
+                  Resume
+                </a>
+              )}
+            </div>
+          </div>
+
+          <div className="@container min-w-0 space-y-6">
+            <FetchWindow />
+            <DashboardMenu />
           </div>
         </div>
-        <Image
-          src="/me.jpeg"
-          alt="Anthony Winchell"
-          width={160}
-          height={160}
-          preload
-          className="size-32 shrink-0 rounded-full border-2 border-purple object-cover sm:size-40"
-        />
       </section>
 
-      <section className="mt-20">
-        <h2 className="text-2xl font-bold text-purple">Projects</h2>
-        <div className="mt-6 space-y-6">
-          {projects.map((project) => (
-            <ProjectCard
-              key={project.slug}
-              project={project}
-              headingLevel="h3"
-            />
-          ))}
+      <section className="border-t border-line">
+        <div className="mx-auto max-w-6xl px-6 py-14">
+          <h2 className="mb-8 text-2xl font-bold text-purple">Experience</h2>
+          <CareerLog />
         </div>
       </section>
 
-      <section className="mt-20">
-        <h2 className="text-2xl font-bold text-purple">About</h2>
-        <p className="mt-4 text-lg leading-relaxed">
-          I graduated with a computer science degree in July 2026. I like
-          concurrency, networking, and building tools I want to use myself,
-          mostly from inside Neovim.
-        </p>
+      <section className="border-t border-line">
+        <div className="mx-auto max-w-6xl px-6 py-14">
+          <h2 className="text-2xl font-bold text-purple">Projects</h2>
+          <div className="mt-8 space-y-16">
+            {projects.map((project, index) => (
+              <ProjectWindow
+                key={project.slug}
+                project={project}
+                flipped={index % 2 === 1}
+              />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="border-t border-line">
+        <div className="mx-auto max-w-6xl px-6 py-14">
+          <Contact />
+        </div>
       </section>
     </div>
   );

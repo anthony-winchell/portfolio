@@ -2,38 +2,32 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-
-const buffers = [
-  { href: "/", label: "about.md" },
-  { href: "/projects", label: "projects/" },
-];
-
-function isActive(pathname, href) {
-  if (href === "/") return pathname === "/";
-  return pathname === href || pathname.startsWith(`${href}/`);
-}
+import { files } from "@/data/files";
 
 export default function Bufferline() {
   const pathname = usePathname();
 
   return (
-    <header className="sticky top-0 z-10 border-b border-line bg-bg-dark">
-      <nav aria-label="Main" className="flex overflow-x-auto font-mono text-sm">
-        {buffers.map((buffer) => {
-          const active = isActive(pathname, buffer.href);
+    <header className="sticky top-0 z-10 hidden h-12 border-b border-line bg-bg-dark md:block">
+      <nav
+        aria-label="Open buffers"
+        className="flex h-full overflow-x-auto font-mono text-sm"
+      >
+        {files.map((file) => {
+          const active = pathname === file.href;
 
           return (
             <Link
-              key={buffer.href}
-              href={buffer.href}
+              key={file.href}
+              href={file.href}
               aria-current={active ? "page" : undefined}
-              className={`shrink-0 border-t-2 px-5 py-3 -outline-offset-2 ${
+              className={`flex shrink-0 items-center border-t-2 border-r border-r-line px-5 -outline-offset-2 ${
                 active
-                  ? "border-purple bg-bg text-fg"
-                  : "border-transparent text-muted hover:text-fg"
+                  ? "border-t-purple bg-bg text-fg"
+                  : "border-t-transparent text-muted hover:text-fg"
               }`}
             >
-              {buffer.label}
+              {file.name}
             </Link>
           );
         })}
